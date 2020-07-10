@@ -1,0 +1,19 @@
+.register {
+    color: rgb(0, 93, 79);
+    text-decoration: underline;
+}
+
+.generalBtn {
+    width: 70px;
+    background-color: rgb(0, 93, 79);
+    color: #eee;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+}
+
+.generalBtn:hover {
+    background-color: rgb(65, 164, 142);
+    transition: 0.2s ease-in-out;
+}

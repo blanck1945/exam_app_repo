@@ -1,0 +1,38 @@
+.examClass {
+    min-width: 100%;
+    min-height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    justify-content: flex-start;
+    .examTitle {
+        margin: 5px 0;
+        color: rgb(65, 164, 142);
+    }
+    .examCenterBox {
+        width: 95%;
+        display: flex;
+        align-items: center;
+        height: 240px;
+        .questionsBox {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .quest {
+                background-color: red;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
+        }
+    }
+    .examQuestions {
+        width: 95%;
+        margin-top: 25px;
+        background-color: red;
+        height: 240px;
+    }
+}
