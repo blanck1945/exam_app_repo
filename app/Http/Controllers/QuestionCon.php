@@ -12,8 +12,11 @@ class QuestionCon extends Controller
         $dataArr = json_decode(json_encode($data), true);
         $filter = array_rand($dataArr, 1);
         $response = $dataArr[$filter];
-
-        return $response;
+        $resArr = array_push($response);
+        return $dataArr;
     }
+
+
+
 
 }

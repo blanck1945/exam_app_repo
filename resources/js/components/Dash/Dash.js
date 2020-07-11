@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { userContext, materiaContext } from '../Context/UserContext'
-import { fetchMaterias } from '../AxiosFunc/Func'
+import { fetchMaterias, useAxios, API } from '../AxiosFunc/Func'
 import { useHistory } from 'react-router-dom'
 
 import "./Dash.scss"
@@ -8,22 +8,17 @@ import "./Dash.scss"
 const Dash = () => {
 
     const { user } = useContext(userContext)
-    const { setMateriaQuery, materiaQuery } = useContext(materiaContext)
-    const [materias, setMaterias] = useState([])
+    const { setMateriaQuery } = useContext(materiaContext)
     const history = useHistory()
 
-    useEffect(() => {
-        handlerEffect(user)
-    }, [])
-    const handlerEffect = async user => {
-        console.log(user.id)
-        const { id } = user
-        setMaterias(await fetchMaterias(id))
-        setMateriaQuery(await fetchMaterias(id))
+    const { data, loading } = useAxios(`${API}student_materia/${user.id}`)
 
+    const handlerRendir = id => {
+        setMateriaQuery({ materiaId: id })
+        setTimeout(() => {
+            history.push("/exam")
+        }, 500)
     }
-
-    console.log(materias)
     return (
         <div className="dash">
             <div className="dashBox">
@@ -41,15 +36,14 @@ const Dash = () => {
                         <h4>Materia</h4>
                         <h4>Estado</h4>
                     </div>
-                    {materias.length !== 0 ? materias.map(el =>
-                        <div className="examBoxRow" key={el.id}>
+                    {loading === false ? data.map((el, index) =>
+                        <div className="examBoxRow" key={index}>
                             <h4>{el.id}</h4>
                             <h4>{user.name}</h4>
                             <h4>{el.materia_name}</h4>
-                            <button className="generalBtn" onClick={() =>
-                                history.push("/exam")}>Rendir</button>
+                            <button className="generalBtn" onClick={() => handlerRendir(el.id)}>Rendir</button>
                         </div>)
-                        : []
+                        : "Loading..."
                     }
                 </div>
             </div>

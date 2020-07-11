@@ -20,6 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Questions Routes
 Route::get("/questions/{id}", "QuestionCon@index");
+Route::post("/send_res/{id}", "QuestionCon@send");
+
+//Exam Routes
+Route::post("/send_res", "ExamCon@send_res");
+
 
 //Materia Routes
 

@@ -8,7 +8,7 @@ import Navbar from './Layout/Navbar';
 import "../../sass/Root.scss"
 import Footer from './Layout/Footer';
 import Dash from './Dash/Dash';
-import { userContext, materiaContext } from './Context/UserContext';
+import { userContext, materiaContext, answerContext } from './Context/UserContext';
 
 
 import "../../sass/Globals.scss"
@@ -19,10 +19,26 @@ const Root = () => {
         id: 1
     })
 
-    const [materiaQuery, setMateriaQuery] = useState(0)
+    const [materiaQuery, setMateriaQuery] = useState({
+        materiaId: null
+    })
+
+    const [exam, setExam] = useState([
+        {
+            question: 1,
+            option: ""
+        },
+        {
+            question: 2,
+            option: ""
+        }
+    ])
 
     const providerValue = useMemo(() => ({ user, setUser }), [user, setUser])
     const materiaValue = useMemo(() => ({ materiaQuery, setMateriaQuery }), [materiaQuery, setMateriaQuery])
+    const examValue = useMemo(() => ({ exam, setExam }), [exam, setExam])
+
+
     return (
         <Router>
             <div className="container">
@@ -31,8 +47,10 @@ const Root = () => {
                     <userContext.Provider value={providerValue}>
                         <Route exact path="/" component={Login} />
                         <materiaContext.Provider value={materiaValue} >
-                            <Route path="/dash" component={Dash} />
-                            <Route path="/exam" component={Exam} />
+                            <answerContext.Provider value={examValue}>
+                                <Route path="/dash" component={Dash} />
+                                <Route path="/exam" component={Exam} />
+                            </answerContext.Provider>
                         </materiaContext.Provider>
                     </userContext.Provider>
                 </Switch>

@@ -22,17 +22,125 @@
             flex-direction: column;
             align-items: center;
             .quest {
-                background-color: red;
+                background-color: #eee;
                 width: 100%;
                 height: 100%;
+                border: 1px solid black;
                 overflow: auto;
+                .acitveQues {
+                    background-color: rgb(65, 164, 142);
+                    color: white;
+                    height: 55px;
+                    padding: 0 4px;
+                }
+                .questBox {
+                    padding: 0 4px;
+                    display: grid;
+                    max-width: 100%;
+                    height: 55px;
+                    border-bottom: 1px solid black;
+                    align-items: center;
+                    grid-template-columns: 30px 450px 150px;
+                    .text {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .optionsQuant {
+                        width: 73%;
+                        display: flex;
+                        margin-top: 2px;
+                        height: 40px;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        .quantItem {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .questionsData {
+        .quest {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .timmerBox {
+                display: flex;
+                align-items: center;
+                width: 90%;
+                margin: auto;
+                .timmer {
+                    margin-left: 50px;
+                    width: 180px;
+                    text-align: center;
+                    background-color: white;
+                    padding: 6px;
+                }
+                .alert {
+                    margin-left: 50px;
+                    font-size: 0.9rem;
+                    color: rgb(65, 164, 142);
+                }
+            }
+            .generalBtn {
+                width: 210px;
+                height: 30px;
+                margin: 4px auto;
+            }
+            .questDis {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                .resNum {
+                    font-size: 1.2rem;
+                }
             }
         }
     }
     .examQuestions {
         width: 95%;
         margin-top: 25px;
-        background-color: red;
+        background-color: #eee;
+        padding-left: 8px;
         height: 240px;
+        .resBox {
+            width: 100%;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            border-bottom: 1px solid black;
+            .circle {
+                font-size: 0.8rem;
+                margin: 0 4px;
+                margin-top: 2px;
+                cursor: pointer;
+                color: black;
+            }
+            .active {
+                color: rgb(65, 164, 142);
+            }
+        }
+    }
+    .footBtn {
+        width: 95%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .submit {
+            margin: 0 8px;
+            height: 40px;
+            width: 200px;
+        }
+        .inpLabel {
+            margin-left: 4px;
+            margin-top: 2px;
+        }
     }
 }
