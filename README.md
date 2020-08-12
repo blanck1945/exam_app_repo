@@ -1,5 +1,5 @@
 
-<h3>Pagina de Examen basada en la pagina que usa la Universidad del Siglo xxi</h3>
+<h3>Pagina de Examen basada en la pagina que usa la Universidad del Siglo xxi para tomar examen</h3>
 
 <h2>Backend Laravel</h2>
 <h2>Frontend React - SCSS - API Context</h2>
